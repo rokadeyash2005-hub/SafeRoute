@@ -1,0 +1,64 @@
+server:
+  port: ${PORT:8081}
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: saferoute-backend-orchestrator
+
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_SERVER:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DB:saferoute_db}
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    open-in-view: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+# Security & JWT Configuration
+app:
+  jwt:
+    # 256-bit HMAC SHA-256 Secret Key
+    secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+    expiration-ms: 86400000 # 24 Hours in milliseconds
+
+# External Integrations
+integrations:
+  mapbox:
+    access-token: ${MAPBOX_ACCESS_TOKEN:pk.eyJ1IjoiYW5pa2V0MTIzMSIsImEiOiJjbXZyeGM1Y2cwMXZzMnpxbjUxcG8zY28yIn0.UHGUSxAZT_2yPuZEKdNXbg}
+    directions-url: https://api.mapbox.com/directions/v5/mapbox/driving
+  google:
+    maps:
+      api-key: ${GOOGLE_MAPS_API_KEY:}
+      directions-url: https://maps.googleapis.com/maps/api/directions/json
+  ml:
+    service:
+      url: ${ML_SERVICE_URL:http://localhost:8082/api/ml/evaluate-routes}
+      timeout-seconds: 10
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:h2:mem:saferoute_db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=PostgreSQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: create-drop
+

@@ -1,0 +1,26 @@
+name: saferoute_mobile
+description: Crowdsourced Real-Time Women Safety and Safe-Route Recommendation App (MCA-P17)
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  google_maps_flutter: ^2.5.3
+  geolocator: ^10.1.0
+  http: ^1.2.0
+  provider: ^6.1.1
+  flutter_polyline_points: ^2.0.0
+  shared_preferences: ^2.2.2
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
