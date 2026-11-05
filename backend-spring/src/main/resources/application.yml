@@ -36,7 +36,7 @@ app:
 # External Integrations
 integrations:
   mapbox:
-    access-token: ${MAPBOX_ACCESS_TOKEN:pk.eyJ1IjoiYW5pa2V0MTIzMSIsImEiOiJjbXZyeGM1Y2cwMXZzMnpxbjUxcG8zY28yIn0.UHGUSxAZT_2yPuZEKdNXbg}
+    access-token: ${MAPBOX_ACCESS_TOKEN:YOUR_MAPBOX_ACCESS_TOKEN}
     directions-url: https://api.mapbox.com/directions/v5/mapbox/driving
   google:
     maps:

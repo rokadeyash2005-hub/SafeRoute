@@ -29,7 +29,7 @@ public class GoogleDirectionsService {
         this.webClient = webClient;
     }
 
-    @Value("${integrations.mapbox.access-token:pk.eyJ1IjoiYW5pa2V0MTIzMSIsImEiOiJjbXZyeGM1Y2cwMXZzMnpxbjUxcG8zY28yIn0.UHGUSxAZT_2yPuZEKdNXbg}")
+    @Value("${integrations.mapbox.access-token:YOUR_MAPBOX_ACCESS_TOKEN}")
     private String mapboxAccessToken;
 
     @Value("${integrations.mapbox.directions-url:https://api.mapbox.com/directions/v5/mapbox/driving}")

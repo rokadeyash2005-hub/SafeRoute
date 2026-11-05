@@ -32,7 +32,7 @@ class MapboxPlace {
 
 class MapboxService {
   static const String publicAccessToken =
-      'pk.eyJ1IjoiYW5pa2V0MTIzMSIsImEiOiJjbXZyeGM1Y2cwMXZzMnpxbjUxcG8zY28yIn0.UHGUSxAZT_2yPuZEKdNXbg';
+      'YOUR_MAPBOX_ACCESS_TOKEN';
 
   static const String directionsBaseUrl =
       'https://api.mapbox.com/directions/v5/mapbox';
